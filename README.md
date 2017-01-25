@@ -3,6 +3,7 @@
 An implementation of the Bluetooth Current Time Service for Android applications communicating with a Bluetooth peripheral.
 
 https://beeline.co
+
 Copyright 2017 Relish Technologies Ltd.
 
 ## Usage
