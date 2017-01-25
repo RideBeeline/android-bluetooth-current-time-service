@@ -6,6 +6,21 @@ https://beeline.co
 
 Copyright 2017 Relish Technologies Ltd.
 
+## Installation
+
+Add the following to your app's `build.gradle`:
+
+```gradle
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile "com.github.RideBeeline:android-bluetooth-current-time-service:0.1.0"
+}
+```
+
 ## Usage
 
 When starting your app, for example in the `onCreate` method of your `Application`, start `CurrentTimeService`.
