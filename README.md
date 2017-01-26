@@ -15,7 +15,6 @@ Add the following to your app's `build.gradle`:
 
 ```gradle
 repositories {
-    mavenCentral()
     maven { url "https://jitpack.io" }
 }
 
