@@ -23,10 +23,10 @@ dependencies {
 
 ## Usage
 
-When starting your app, for example in the `onCreate` method of your `Application`, start `CurrentTimeService`.
+When starting your app, for example in the `onCreate` method of your `Application`, start `CurrentTimeService`. Note that Bluetooth should be enabled on the device to successfully start the service.
 
 ```java
-CurrentTimeService.start(this);
+boolean success = CurrentTimeService.start(this);
 ```
 
 When closing your app make sure to stop the service, for example in the `onTerminate` method of your `Application`.
