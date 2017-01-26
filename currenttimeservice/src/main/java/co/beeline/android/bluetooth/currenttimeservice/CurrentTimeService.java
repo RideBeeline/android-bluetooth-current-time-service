@@ -16,6 +16,7 @@ import android.bluetooth.BluetoothGattServerCallback;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+import android.util.Log;
 
 import java.util.Calendar;
 import java.util.UUID;
@@ -23,6 +24,10 @@ import java.util.UUID;
 import static android.content.Context.BLUETOOTH_SERVICE;
 
 public class CurrentTimeService {
+
+    private static final String TAG = CurrentTimeService.class.getSimpleName();
+
+    private CurrentTimeService() {}
 
     // UUID for Current Time Service (CTS)
     private static final UUID SERVICE_UUID = UUID.fromString("00001805-0000-1000-8000-00805f9b34fb");
@@ -65,14 +70,25 @@ public class CurrentTimeService {
         }
     }
 
-    public static void startServer(Context context) {
+    /**
+     * Start the CurrentTimeService GATT server
+     * @return true if the GATT server starts successfully or is already running
+     */
+    public static boolean startServer(Context context) {
         if (sGattServer == null) {
             BluetoothManager manager = (BluetoothManager) context.getSystemService(BLUETOOTH_SERVICE);
             CurrentTimeCallback callback = new CurrentTimeCallback();
-            BluetoothGattServer gattServer = manager.openGattServer(context, callback);
-            gattServer.addService(GATT_SERVICE);
-            callback.setGattServer(gattServer);
+            sGattServer = manager.openGattServer(context, callback);
+            if (sGattServer == null) {
+                Log.e(TAG, "Unable to start GATT server");
+                return false;
+            }
+            sGattServer.addService(GATT_SERVICE);
+            callback.setGattServer(sGattServer);
+        } else {
+            Log.w(TAG, "Already started");
         }
+        return true;
     }
 
     public static void stopServer() {
