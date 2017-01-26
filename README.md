@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    compile "com.github.RideBeeline:android-bluetooth-current-time-service:0.1.1"
+    compile "com.github.RideBeeline:android-bluetooth-current-time-service:0.1.2"
 }
 ```
 
