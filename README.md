@@ -1,7 +1,6 @@
 # Android Bluetooth Current Time Service
 
-[![Release](https://jitpack.io/v/RideBeeline/android-bluetooth-current-time-service.svg)]
-(https://jitpack.io/#RideBeeline/android-bluetooth-current-time-service)
+<a href="https://jitpack.io/#RideBeeline/android-bluetooth-current-time-service"><img src="https://jitpack.io/v/RideBeeline/android-bluetooth-current-time-service.svg"/></a>
 
 An implementation of the Bluetooth Current Time Service for Android applications communicating with a Bluetooth peripheral.
 
